@@ -1,7 +1,0 @@
-appName: starter-frontend
-
-port: 80
-
-image:
-  name: ghcr.io/klub-inzenjera/starter-frontend-template
-  tag: latest
