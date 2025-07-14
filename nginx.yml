@@ -13,12 +13,6 @@ spec:
       values: |
         service:
           type: LoadBalancer
-      extraManifests:
-        - |
-          apiVersion: v1
-          kind: Namespace
-          metadata:
-            name: nginx
   destination:
     server: https://kubernetes.default.svc
     namespace: nginx
