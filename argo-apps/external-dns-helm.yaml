@@ -11,13 +11,13 @@ spec:
     helm:
       values: |
         provider: azure
-        azure.resourceGroup: "<dns-resource-group>"
-        azure.subscriptionId: "<sub-id>"
-        azure.tenantId: "<tenant-id>"
-        azure.aadClientId: "<client-id>"
+        azure.resourceGroup: "rg-aks-demo"
+        azure.subscriptionId: "3f6a7dd6-0892-469a-9550-8d67f5447178"
+        azure.tenantId: "916b08d4-1ccd-4de2-9379-67f415724dba"
+        azure.aadClientId: "ea5b1463-7f43-40aa-bcf9-bc5a3adfbc8c"
         azure.aadClientSecret: "<client-secret>"
         domainFilters:
-          - "yourdomain.com"
+          - "urossimeunovic.com"
         policy: sync
         serviceAccount:
           create: true
