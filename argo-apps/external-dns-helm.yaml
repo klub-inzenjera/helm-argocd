@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns
+  namespace: argocd
+spec:
+  source:
+    repoURL: https://kubernetes-sigs.github.io/external-dns/
+    chart: external-dns
+    targetRevision: 1.14.4
+    helm:
+      values: |
+        provider: azure
+        azure.resourceGroup: "<dns-resource-group>"
+        azure.subscriptionId: "<sub-id>"
+        azure.tenantId: "<tenant-id>"
+        azure.aadClientId: "<client-id>"
+        azure.aadClientSecret: "<client-secret>"
+        domainFilters:
+          - "yourdomain.com"
+        policy: sync
+        serviceAccount:
+          create: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
